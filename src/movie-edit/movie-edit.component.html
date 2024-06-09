@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+        {{ getEditTitle() }}
+    </div>
+    <div class="card-body">
+        <span class="badge badge-warning"> {{ movie.id }} -) {{ movie.name }} </span>
+        <span (click)="notSelect()" style="color:orange;" class="close">x</span>
+        <br/>
+        <br/>
+        <div class="input-group">
+            <input type="text" [(ngModel)]="movie.name" class="form-control">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button"> Update </button>
+            </div>
+        </div>
+    </div>
+</div>

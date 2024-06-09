@@ -3,22 +3,13 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<div class="card" *ngIf="selectedMovie">
-    <div class="card-body">
-        <span class="badge badge-warning"> {{ selectedMovie.id }} -) {{ selectedMovie.name }} </span>
-        <br/>
-        <div class="input-group">
-            <input type="text" [(ngModel)]="selectedMovie.name" class="form-control">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Update</button>
-            </div>
-        </div>
-    </div>
+<div *ngIf="selectedMovie">
+    <movie-edit [movie]="selectedMovie"></movie-edit>
 </div>
 
 <div class="card">
     <div class="card-header">
-        {{ getTitle() }}
+        {{ getMainTitle() }}
     </div>
     <ul class="list-group list-group-flush">
         <li *ngFor="let movie of movies" (click)="onSelect(movie)" class="list-group-item"
