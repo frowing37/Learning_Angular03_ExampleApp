@@ -1,9 +1,11 @@
+
+
 <div class="card">
     <div class="card-header">
         {{ getEditTitle() }}
     </div>
     <div class="card-body">
-        <span class="badge badge-warning"> {{ movie.id }} -) {{ movie.name }} </span>
+        <span class="badge badge-warning"> {{ movie.id }} - {{ movie.name }} </span>
         <span (click)="notSelect()" style="color:orange;" class="close">x</span>
         <br/>
         <br/>

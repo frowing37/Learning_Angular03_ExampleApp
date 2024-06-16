@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MovieDto } from '../models/MovieDto';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -11,14 +11,25 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './movie-edit.component.css'
 })
 
-export class MovieEditComponent implements OnInit {
+export class MovieEditComponent implements OnInit, OnChanges {
 
-  @Input() movie: MovieDto | undefined
+  @Input() movie : MovieDto | undefined;
+  subtitleForEdit = "Edit Movie";
 
-  constructor() { }
-
-  ngOnInit(): void {
-
+  getEditTitle() { 
+    return this.subtitleForEdit;
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('MovieEditComponent changes:', changes);
+    this.movie = changes['movie'].currentValue;
+  }
+
+  ngOnInit(): void {
+    
+  }
+
+  notSelect(): void {
+    this.movie = undefined;
+  }
 }

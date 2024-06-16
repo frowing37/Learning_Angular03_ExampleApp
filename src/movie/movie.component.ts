@@ -10,30 +10,24 @@ import { MovieEditComponent } from '../movie-edit/movie-edit.component';
   standalone: true,
   imports: [CommonModule, FormsModule, MovieEditComponent],
   templateUrl: 'movie.component.html',
-  styleUrl: 'movie.component.css'
+  styleUrls: ['movie.component.css']
 })
 
-export class MovieComponent {
 
+export class MovieComponent {
   mainTitle = "Movies List";
-  selectedMovie : MovieDto | undefined;
-  subTitleForEdit = "Edit Movie";
+  selectedMovie : MovieDto = { id:0, name:'aşlsdkdd' };
 
   getMainTitle() {
     return this.mainTitle;
   }
 
-  getEditTitle() {
-    return this.subTitleForEdit;
-  }
+  constructor() { }
 
   movies : MovieDto[] = Movies;
 
   onSelect(movie : MovieDto): void {
     this.selectedMovie = movie;
-  }
-
-  notSelect(): void {
-    this.selectedMovie = undefined;
+    console.log('Selected movie:', this.selectedMovie);
   }
 }
