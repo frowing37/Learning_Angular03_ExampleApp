@@ -21,8 +21,8 @@ export class MovieEditComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('MovieEditComponent changes:', changes);
     this.movie = changes['movie'].currentValue;
+    console.log('MovieEditComponent changes:', changes);
   }
 
   ngOnInit(): void {
